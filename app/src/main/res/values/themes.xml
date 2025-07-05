@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.AutoResponder" parent="Theme.Material3.DayNight.NoActionBar">
+    </style>
+
+    <style name="Theme.AutoResponder" parent="Base.Theme.AutoResponder" />
+
+    <style name="Widget.App.Chip.DayOfWeek" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="chipMinTouchTargetSize">0dp</item>
+        <item name="chipMinHeight">32dp</item>
+        <item name="chipCornerRadius">8dp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+</resources>

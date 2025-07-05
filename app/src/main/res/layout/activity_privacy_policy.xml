@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/privacyPolicyTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="[Placeholder] Your privacy is important to us. This app, AutoResponder, processes SMS data locally on your device to function. It requires permissions to read your phone state (to identify SIM cards), read your SMS (to detect incoming messages), and send SMS (to send auto-replies). No personal data, including message content or contacts, is ever collected, stored remotely, or shared with third parties. All processing happens entirely on your phone."
+        android:lineSpacingExtra="4dp"
+        android:textAppearance="?attr/textAppearanceBody1" />
+
+</ScrollView>

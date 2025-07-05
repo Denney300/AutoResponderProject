@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AutoResponder</string>
+    <string name="add_new_schedule">Add new schedule</string>
+    <string name="start_time">Start Time</string>
+    <string name="end_time">End Time</string>
+    <string name="auto_reply_message">Auto-Reply Message</string>
+    <string name="respond_with">Respond with:</string>
+    <string name="enable_this_schedule">Enable this schedule</string>
+    <string name="save">Save</string>
+    <string name="active_status">Active Status</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+</resources>
