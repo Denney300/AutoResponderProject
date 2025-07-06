@@ -24,6 +24,10 @@ class ScheduleRepository @Inject constructor(private val scheduleDao: ScheduleDa
         return scheduleDao.getActiveSchedulesOnce()
     }
 
+    suspend fun getActiveScheduleCount(): Int {
+        return scheduleDao.getActiveScheduleCount()
+    }
+
     suspend fun delete(schedule: Schedule) {
         scheduleDao.delete(schedule)
     }

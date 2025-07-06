@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.autoresponder"
-        minSdk = 24
+        minSdk = 24 // Required for java.time.LocalTime API support
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -47,34 +47,36 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.activity:activity-ktx:1.8.2")
+    implementation("androidx.activity:activity-ktx:1.8.2") // For by viewModels()
 
-    // Room
+    // Room (for database)
     implementation("androidx.room:room-runtime:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
-    implementation(libs.androidx.runner)
     kapt("androidx.room:room-compiler:2.6.1")
 
-    // Lifecycle
+    // Lifecycle components
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
 
-    // Coroutines
+    // Kotlin coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
     // WorkManager
     implementation("androidx.work:work-runtime-ktx:2.9.0")
 
-    // Hilt
+    // Hilt (for Dependency Injection)
     implementation("com.google.dagger:hilt-android:2.48.1")
     kapt("com.google.dagger:hilt-android-compiler:2.48.1")
     implementation("androidx.hilt:hilt-work:1.2.0")
     kapt("androidx.hilt:hilt-compiler:1.2.0")
 
-    // Testing
+    // Testing dependencies
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("com.google.dagger:hilt-android-testing:2.48.1")
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.48.1")
+}
 
+kapt {
+    correctErrorTypes = true
 }

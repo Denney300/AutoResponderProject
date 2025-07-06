@@ -2,13 +2,7 @@
 package com.example.autoresponder.database
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
-import androidx.room.Transaction
-import androidx.room.Update
+import androidx.room.*
 
 @Dao
 interface ScheduleDao {
@@ -26,6 +20,9 @@ interface ScheduleDao {
 
     @Query("SELECT * FROM schedule_table WHERE isActive = 1")
     suspend fun getActiveSchedulesOnce(): List<Schedule>
+
+    @Query("SELECT COUNT(*) FROM schedule_table WHERE isActive = 1")
+    suspend fun getActiveScheduleCount(): Int
 
     @Delete
     suspend fun delete(schedule: Schedule)

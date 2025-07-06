@@ -4,7 +4,6 @@ package com.example.autoresponder.ui.main
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
@@ -35,9 +34,8 @@ class MainActivity : AppCompatActivity(), ScheduleAdapter.ScheduleItemListener {
 
     private val requestPermissionsLauncher =
         registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
-            val allGranted = permissions.entries.all { it.value }
-            if (!allGranted) {
-                Toast.makeText(this, "Some permissions were denied. App may not function.", Toast.LENGTH_LONG).show()
+            if (permissions.entries.any { !it.value }) {
+                Toast.makeText(this, "All permissions are required for the app to function.", Toast.LENGTH_LONG).show()
             }
         }
 
@@ -46,6 +44,8 @@ class MainActivity : AppCompatActivity(), ScheduleAdapter.ScheduleItemListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
+
+        checkAndRequestPermissions()
 
         val adapter = ScheduleAdapter(this)
         binding.scheduleRecyclerView.adapter = adapter
